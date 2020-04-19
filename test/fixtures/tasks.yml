@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  text_build: MyText
+  link: MyString
+  task_type: 1
+  order_number: 1
+
+two:
+  name: MyString
+  text_build: MyText
+  link: MyString
+  task_type: 1
+  order_number: 1

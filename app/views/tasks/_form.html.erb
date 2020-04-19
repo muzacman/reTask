@@ -1,0 +1,51 @@
+<%= form_with(model: task, local: true) do |form| %>
+
+  <div class="form-box">
+    <% if task.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+        <ul>
+          <% task.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :text_build %>
+      <%= form.text_area :text_build %>
+    </div>
+
+    <div class="field">
+      <%= form.label :link %>
+      <%= form.text_field :link %>
+    </div>
+
+    <div class="field">
+      <%= form.label :task_type, "Task Type" %>
+      <%= form.select :task_type, @task_types.keys, selected: @task.task_type %>
+    </div>
+
+    <div class="field">
+      <%= form.label :order_number %>
+      <%= form.number_field :order_number %>
+    </div>
+
+    <div class="field">
+      <%= form.label :movement_id %>
+      <%= form.number_field :movement_id %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  </div>
+
+<% end %>

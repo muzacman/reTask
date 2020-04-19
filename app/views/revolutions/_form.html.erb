@@ -1,0 +1,32 @@
+<%= form_with(model: revolution, local: true) do |form| %>
+  <% if revolution.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(revolution.errors.count, "error") %> prohibited this revolution from being saved:</h2>
+
+      <ul>
+        <% revolution.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :repeater_vals, "Repeater Values" %>
+    <%= form.text_area :repeater_vals %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_seconds %>
+    <%= form.number_field :total_seconds %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status, "Status" %>
+    <%= form.select :status, @statuses.keys, selected: @revolution.status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

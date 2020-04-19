@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Repeater vals:</strong>
+  <%= @revolution.repeater_vals %>
+</p>
+
+<p>
+  <strong>Total seconds:</strong>
+  <%= @revolution.total_seconds %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @revolution.status %>
+</p>
+
+<%= link_to 'Edit', edit_revolution_path(@revolution) %> |
+<%= link_to 'Back', revolutions_path %>

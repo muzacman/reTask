@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :revolutions
   get 'home/index'
   get 'home/goodbye'
   root 'home#index'

@@ -14,18 +14,27 @@
     <% end %>
 
     <div class="field">
+      <%= form.label :order_number %>
+      <%= form.number_field :order_number, type: 'number' %>
+      <div class='errorMessage'></div>
+    </div>
+
+    <div class="field">
       <%= form.label :name %>
-      <%= form.text_field :name %>
+      <%= form.text_field :name, type: 'text' %>
+      <div class='errorMessage'></div>
     </div>
 
     <div class="field">
       <%= form.label :text_build %>
-      <%= form.text_area :text_build %>
+      <%= form.text_field :text_build, type: 'text' %>
+      <div class='errorMessage'></div>
     </div>
 
     <div class="field">
       <%= form.label :link %>
-      <%= form.text_field :link %>
+      <%= form.text_field :link, type: 'url' %>
+      <div class='errorMessage'></div>
     </div>
 
     <div class="field">
@@ -34,17 +43,13 @@
     </div>
 
     <div class="field">
-      <%= form.label :order_number %>
-      <%= form.number_field :order_number %>
-    </div>
-
-    <div class="field">
       <%= form.label :movement_id %>
-      <%= form.number_field :movement_id %>
+      <%= form.number_field :movement_id, type: 'hidden', value: '1'%>
+      <div class='errorMessage'></div>
     </div>
 
     <div class="actions">
-      <%= form.submit %>
+      <%= form.submit id: 'submit', data: {disable_with: false}%>
     </div>
   </div>
 

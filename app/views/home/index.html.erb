@@ -8,7 +8,17 @@
 
 <div class="container-fluid">
 
-
+  <div class="row">
+    <% @movements.each do |movement| %>
+      <div class="col-md-4">
+        <h2><%=movement.name%></h2>
+        <p><%=movement.description.truncate_words(30)%></p>
+        <p>
+          <%= link_to 'show', movement, class: "btn btn-default"%>
+        </p>
+      </div>
+    <% end %>
+  </div>
 
 </div>
 <footer>

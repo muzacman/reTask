@@ -16,7 +16,7 @@
       <tr>
         <td><%= movement.name %></td>
         <td><%= movement.description %></td>
-        <td><%= link_to 'Show', movement %></td>
+        <td><%= link_to 'Execute Revolution', new_movement_revolution_path(movement) %></td>
         <td><%= link_to 'Edit', edit_movement_path(movement) %></td>
         <td><%= link_to 'Destroy', movement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

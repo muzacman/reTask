@@ -1,6 +1,7 @@
 class RevolutionsController < ApplicationController
   before_action :set_statuses
   before_action :set_revolution, only: [:show, :edit, :update, :destroy]
+  before_action :set_movement, only: [:show, :edit, :update, :destroy]
 
   # GET /revolutions
   # GET /revolutions.json
@@ -26,6 +27,8 @@ class RevolutionsController < ApplicationController
   # POST /revolutions.json
   def create
     @revolution = Revolution.new(revolution_params)
+    movement = Movement.find(revolution_params[:movement_id])
+    @revolution.build_movement(id: movement.id)
 
     respond_to do |format|
       if @revolution.save
@@ -68,12 +71,16 @@ class RevolutionsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_revolution
-      @revolution = Revolution.find(params[:id])
-    end
+  def set_movement
+    @movement = Movement.find(revolution_params[:movement_id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def revolution_params
-      params.require(:revolution).permit(:repeater_vals, :total_seconds, :status)
-    end
+  def set_revolution
+    @revolution = Revolution.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def revolution_params
+    params.require(:revolution).permit(:repeater_vals, :total_seconds, :status, :movement_id)
+  end
 end

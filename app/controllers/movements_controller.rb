@@ -28,7 +28,7 @@ class MovementsController < ApplicationController
 
     respond_to do |format|
       if @movement.save
-        format.html { redirect_to @movement, notice: 'Movement was successfully created.' }
+        format.html { redirect_to edit_movement_path(@movement.id), notice: 'Movement was successfully created.' }
         format.json { render :show, status: :created, location: @movement }
       else
         format.html { render :new }

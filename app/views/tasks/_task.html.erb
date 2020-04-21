@@ -3,7 +3,7 @@
 
   <%= render 'tasks/form', task: task %>
 
-    <p><%= link_to "Delete task", movement_task_path(task), method: :delete %></p>
+    <p><%= link_to "Delete task", movement_task_path(@movement, task), method: :delete %></p>
   </div> <!--this div closes div inside _form.html-->
 </div>
 <hr>

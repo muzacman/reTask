@@ -1,6 +1,6 @@
 class Movement < ApplicationRecord
-  has_many :tasks
-  has_many :revolutions
+  has_many :tasks, dependent: :destroy
+  has_many :revolutions, dependent: :destroy
 
   VALID_NAME = /\A[a-zA-Z]+[a-zA-Z0-9\-\ \_]*\z/i
   validates :name, presence: true, length: {minimum: 5, maximum: 200},

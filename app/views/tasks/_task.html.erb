@@ -1,0 +1,9 @@
+<p><%= task.id %> | <%= link_to task.name, movement_task_path(@movement, task) %></p>
+
+<h3>Edit this task:</h3>
+
+<%= render 'tasks/form', task: task %>
+
+<p><%= link_to "Delete task", movement_task_path(task), method: :delete %></p>
+
+<hr>

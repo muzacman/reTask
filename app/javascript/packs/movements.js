@@ -1,5 +1,4 @@
-import minValueValid from './validate'
-import maxValueValid from './validate'
+import {minValueValid, maxValueValid}  from './validate'
 
 let fields = document.getElementsByClassName('field');
 let submitButton = document.getElementById('submit');
@@ -26,7 +25,7 @@ function setMsgBlock(message, index) {
         errMsgBlock.style.color = 'green';
         fieldsValid[index] = true;
     } else {
-        errMsgBlock.innerHTML = `<p>${errorMessage}</p>`;
+        errMsgBlock.innerHTML = `<p>${message}</p>`;
         errMsgBlock.style.color = 'red';
         fieldsValid[index] = false;
     }
@@ -44,14 +43,14 @@ fields[0].addEventListener('focusout', () => {
     checkFormCompletion();
 });
 
-// fields[1].addEventListener('focusout', () => {
-//     let nameInput = fields[1].getElementsByTagName('input')[0].value;
-//     let message = "";
-//     let [nameNotShort, nameMessage] = minValueValid(nameInput);
-//     let [nameUnderMax, nameMaxMessage] = maxValueValid(nameInput, 1000);
-//     if (!nameNotShort) {message += nameMessage;}
-//     if (!nameUnderMax) {message += nameMaxMessage;}
-//     setMsgBlock(message, 1)
-//
-//     checkFormCompletion();
-// });
+fields[1].addEventListener('focusout', () => {
+    let nameInput = fields[1].getElementsByTagName('input')[0].value;
+    let message = "";
+    let [nameNotShort, nameMessage] = minValueValid(nameInput);
+    let [nameUnderMax, nameMaxMessage] = maxValueValid(nameInput, 1000);
+    if (!nameNotShort) {message += nameMessage;}
+    if (!nameUnderMax) {message += nameMaxMessage;}
+    setMsgBlock(message, 1)
+
+    checkFormCompletion();
+});

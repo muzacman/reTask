@@ -38,8 +38,9 @@ function isValidNumber(number) {
     return ([isValid, message]);
 }
 
-module.exports = minValueValid;
-module.exports = maxValueValid;
+// module.exports = minValueValid;
+// module.exports = maxValueValid; with require only
+export {minValueValid, maxValueValid} //with import ??? check what webpack wants
 
 // function ValidateInput(type, input) {
 //     let message = "";

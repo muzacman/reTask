@@ -1,4 +1,4 @@
-<%= form_with(model: revolution, local: true) do |form| %>
+<%= form_with(model: [@movement, @revolution], local: true) do |form| %>
   <% if revolution.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(revolution.errors.count, "error") %> prohibited this revolution from being saved:</h2>

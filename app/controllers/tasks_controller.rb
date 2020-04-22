@@ -13,6 +13,8 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
+    tasks_all = Task.all
+    @tasks = tasks_all.select{|task| task.movement_id == @movement.id}
   end
 
   # GET /tasks/new

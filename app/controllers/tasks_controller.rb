@@ -19,7 +19,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-    @task = Task.new
+    @task = Task.new(@movement)
   end
 
   # GET /tasks/1/edit
@@ -31,6 +31,7 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
+    puts task_params[:movement_id]
     movement = Movement.find(task_params[:movement_id])
     @task.build_movement(id: movement.id)
 

@@ -4,6 +4,8 @@
 
 <%= render 'form', movement: @movement %>
 
+
+
 <%if @movement.tasks.any? %>
   </hr>
   <h2>Tasks:</h2>
@@ -13,8 +15,8 @@
 <h2>Add a task:</h2>
 <%= render 'tasks/form', task: @movement.tasks.build %>
 
+<%= link_to 'Back', movements_path, class: "btn btn-light" %>
 
-<%= link_to 'Show', @movement %> |
-<%= link_to 'Back', movements_path %>
+
 <%= javascript_pack_tag 'movements.js', 'data-turbolinks-track': 'reload' %>
 

@@ -5,7 +5,7 @@
 .jumbotron-fluid {
   background-image: asset-url('mountains-1412683.png');
   background-size: cover;
-  height: 400px;
+  height: 300px;
 }
 
 .jumbotron-fluid h1 {
@@ -14,12 +14,17 @@
   margin-bottom: 30px;
   letter-spacing: -1px;
   font-weight: bold;
+  font-family: "American Typewriter", serif;
 }
 
 .jumbotron-fluid p {
-  color: #fff;
+  color: #ffffff;
   text-align: center;
   margin-bottom: 30px;
   font-weight: bold;
   display: inline-block;
+}
+
+.container {
+  padding-top: 40px;
 }

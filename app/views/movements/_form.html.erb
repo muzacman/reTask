@@ -1,7 +1,7 @@
 <%= form_with(model: movement, id: 'moveForm', local: true) do |form| %>
   <div class="form-box">
     <% if movement.errors.any? %>
-      <div id="error_explanation">
+      <div id="error_explanation" class="alert alert-danger">
         <h2><%= pluralize(movement.errors.count, "error") %> prohibited this movement from being saved:</h2>
 
         <ul>
@@ -12,21 +12,23 @@
       </div>
     <% end %>
 
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name, type:'text' %>
-      <div class='errorMessage'></div>
-    </div>
+    <div class="form-row">
+      <div class="field col-3">
+        <%= form.text_field :name, type:'text', class: "form-control", placeholder: :name %>
+        <div class='errorMessage'></div>
+      </div>
 
 
-    <div class="field">
-      <%= form.label :description %>
-      <%= form.text_field :description%>
-      <div class='errorMessage'></div>
+      <div class="field col-6">
+        <%= form.text_field :description, class: "form-control", placeholder: :description %>
+        <div class='errorMessage'></div>
+      </div>
+
+      <div class="actions col">
+        <%= form.submit id: 'submit', data: {disable_with: false}, class: "btn btn-success"%>
+
+      </div>
     </div>
 
-    <div class="actions">
-      <%= form.submit id: 'submit', data: {disable_with: false}%>
-    </div>
   </div>
 <% end %>

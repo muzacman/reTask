@@ -1,40 +1,17 @@
-<table>
-  <tr>
-    <th>
-      Complete
-    </th>
-    <th>
-      Name
-    </th>
-    <th>
-      Text build
-    </th>
-    <th>
-      Link
-    </th>
-    <th>
-      Task_type
-    </th>
+<table class="table table-hover">
+  <tr class="row">
+    <th class="col-2">Complete</th>
+    <th class="col-1">#</th>
+    <th class="col-2">Name</th>
+    <th class="col-5">Text build</th>
+    <th class="col-2">Task_type</th>
   </tr>
-  <tr>
-    <td>
-      <input type="checkbox">
-    </td>
-    <td>
-      <%= @task.order_number %>
-    </td>
-
-    <td>
-      <%= link_to @task.name, @task.link, target: "_blank" %>
-    </td>
-
-    <td>
-      <%= @task.text_build %>
-    </td>
-
-    <td>
-      <%= @task.task_type %>
-    </td>
+  <tr class="row">
+    <td class="col-2"><input type="checkbox"></td>
+    <td class="col-1"><%= @task.order_number %></td>
+    <td class="col-2"><%= link_to @task.name, @task.link, target: "_blank" %></td>
+    <td class="col-5"><%= @task.text_build %></td>
+    <td  class="col-2"><%= @task.task_type %></td>
   </tr>
   <%#= render 'tasks/show_task', task: @task %>
 </table>

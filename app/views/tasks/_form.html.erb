@@ -12,32 +12,31 @@
       </div>
     <% end %>
 
-    <div class="field">
-      <%= form.label :order_number %>
-      <%= form.number_field :order_number %>
+    <div class="form-row">
+      <div class="field form-group col">
+        <%= form.number_field :order_number, class: "form-control" %>
+      </div>
+
+      <div class="field form-group col-9">
+        <%= form.text_field :name, placeholder: :name, class: "form-control" %>
+      </div>
     </div>
 
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
+    <div class="form-row">
+      <div class="field form-group col-sm-12">
+        <%= form.text_field :text_build, placeholder: "Build your task text here", class: "form-control" %>
+      </div>
     </div>
-
-    <div class="field">
-      <%= form.label :text_build %>
-      <%= form.text_field :text_build %>
+    <div class="form-row">
+      <div class="field form-group col-sm-6">
+        <%= form.label :task_type, "Task Type", class: "form-control" %>
+      </div>
+      <div class="field form-group col-sm-6">
+        <%= form.text_field :link, placeholder: "www.link.com", class: "form-control" %>
+      </div>
     </div>
-
-    <div class="field">
-      <%= form.label :task_type, "Task Type" %>
-    </div>
-
-    <div class="field">
-      <%= form.label :link %>
-      <%= form.text_field :link %>
-    </div>
-
-    <div class="actions">
-      <%= form.submit id: 'submit', data: {disable_with: false}%>
-    </div>
-
+    <div class="row">
+      <div class="actions form-group col-4">
+        <%= form.submit id: 'submit', data: {disable_with: false}, class: "form-control btn btn-success"%>
+      </div>
 <% end %>

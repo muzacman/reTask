@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2020_04_21_235705) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "repeater_names"
+    t.integer "revolution_id"
+    t.index ["revolution_id"], name: "index_movements_on_revolution_id"
   end
 
   create_table "revolutions", force: :cascade do |t|
@@ -42,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_04_21_235705) do
     t.index ["movement_id"], name: "index_tasks_on_movement_id"
   end
 
+  add_foreign_key "movements", "revolutions"
   add_foreign_key "revolutions", "movements"
   add_foreign_key "tasks", "movements"
 end

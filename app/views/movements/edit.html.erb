@@ -1,6 +1,18 @@
+
+
 <h1>Editing Movement</h1>
 
 <%= render 'form', movement: @movement %>
+
+<%if @movement.tasks.any? %>
+  </hr>
+  <h2>Tasks:</h2>
+  <%=render @movement.tasks %>
+<%end %>
+
+<h2>Add a task:</h2>
+<%= render 'tasks/form', task: @movement.tasks.build %>
+
 
 <%= link_to 'Show', @movement %> |
 <%= link_to 'Back', movements_path %>

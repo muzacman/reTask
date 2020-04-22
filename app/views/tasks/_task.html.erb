@@ -1,0 +1,9 @@
+<div class="task-form">
+  <p><%= task.id %> | <%= link_to "Preview #{task.name}", movement_task_path(@movement, task) %></p>
+
+  <%= render 'tasks/form', task: task %>
+
+    <p><%= link_to "Delete task", movement_task_path(@movement, task), method: :delete %></p>
+  </div> <!--this div closes div inside _form.html-->
+</div>
+<hr>

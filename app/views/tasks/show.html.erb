@@ -1,29 +1,44 @@
-<p id="notice"><%= notice %></p>
+<table>
+  <tr>
+    <th>
+      Complete
+    </th>
+    <th>
+      Name
+    </th>
+    <th>
+      Text build
+    </th>
+    <th>
+      Link
+    </th>
+    <th>
+      Task_type
+    </th>
+  </tr>
+  <tr>
+    <td>
+      <input type="checkbox">
+    </td>
+    <td>
+      <%= @task.order_number %>
+    </td>
 
-<p>
-  <strong>Name:</strong>
-  <%= @task.name %>
-</p>
+    <td>
+      <%= link_to @task.name, @task.link, target: "_blank" %>
+    </td>
 
-<p>
-  <strong>Text build:</strong>
-  <%= @task.text_build %>
-</p>
+    <td>
+      <%= @task.text_build %>
+    </td>
 
-<p>
-  <strong>Link:</strong>
-  <%= @task.link %>
-</p>
+    <td>
+      <%= @task.task_type %>
+    </td>
+  </tr>
+  <%#= render 'tasks/show_task', task: @task %>
+</table>
 
-<p>
-  <strong>Task_type:</strong>
-  <%= @task.task_type %>
-</p>
 
-<p>
-  <strong>Order number:</strong>
-  <%= @task.order_number %>
-</p>
-
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<%= link_to 'Edit', edit_movement_path(@task) %> |
+<%= link_to 'Back', movement_task_path %>

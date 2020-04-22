@@ -1,6 +1,7 @@
 class RevolutionsController < ApplicationController
   before_action :set_statuses
   before_action :set_revolution, only: [:show, :edit, :update, :destroy]
+  before_action :set_movement, only: [:show, :edit, :update, :destroy]
 
   # GET /revolutions
   # GET /revolutions.json
@@ -16,16 +17,22 @@ class RevolutionsController < ApplicationController
   # GET /revolutions/new
   def new
     @revolution = Revolution.new
+    puts 'got rc 20'
   end
 
   # GET /revolutions/1/edit
   def edit
+
   end
 
   # POST /revolutions
   # POST /revolutions.json
   def create
-    @revolution = Revolution.new(revolution_params)
+    puts 'got rc 34'
+    @revolution = Revolution.create(revolution_params)
+    movement = Movement.find(revolution_params[:movement_id])
+    @revolution.build_movement(id: movement.id)
+    puts "got rc 38"
 
     respond_to do |format|
       if @revolution.save
@@ -68,12 +75,20 @@ class RevolutionsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_revolution
-      @revolution = Revolution.find(params[:id])
-    end
+  def set_movement
+    puts 'got rc 82'
+    @movement = Movement.find(revolution_params[:movement_id])
+    puts 'got rc 84'
+  end
 
-    # Only allow a list of trusted parameters through.
-    def revolution_params
-      params.require(:revolution).permit(:repeater_vals, :total_seconds, :status)
-    end
+  def set_revolution
+    puts 'got rc 88'
+    @revolution = Revolution.find(params[:id])
+    puts 'got rc 90'
+  end
+
+  # Only allow a list of trusted parameters through.
+  def revolution_params
+    params.require(:revolution).permit(:repeater_vals, :total_seconds, :status, :movement_id)
+  end
 end

@@ -18,14 +18,11 @@
         <td><%= revolution.repeater_vals %></td>
         <td><%= revolution.total_seconds %></td>
         <td><%= revolution.status %></td>
-        <td><%= link_to 'Show', revolution %></td>
-        <td><%= link_to 'Edit', edit_revolution_path(revolution) %></td>
-        <td><%= link_to 'Destroy', revolution, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', movement_revolution_path(revolution.movement_id, revolution) %></td>
+        <td><%= link_to 'Edit', edit_movement_revolution_path(revolution.movement_id, revolution) %></td>
+        <td><%= link_to 'Destroy', movement_revolution_path(revolution.movement_id, revolution),
+                        method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Revolution', new_revolution_path %>

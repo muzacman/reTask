@@ -1,0 +1,36 @@
+<%= @tasks.each do |task| %>
+  <% if task.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <strong><%= pluralize(task.errors.count, "error") %> prohibited this bug from being saved:</strong>
+
+      <ul>
+        <% task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p id="notice"><%= notice %></p>
+
+  <tr>
+    <td>
+      <input type="checkbox">
+    </td>
+    <td>
+      <%= task.order_number %>
+    </td>
+
+    <td>
+      <%= link_to task.name, task.link  %>
+    </td>
+
+    <td>
+      <%= task.text_build %>
+    </td>
+
+    <td>
+      <%= task.task_type %>
+    </td>
+  </tr>
+<% end %>

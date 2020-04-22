@@ -23,14 +23,10 @@
         <td><%= task.task_type %></td>
         <td><%= task.order_number %></td>
         <td><%= task.id %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', movement_task_path(task.movement_id, task) %></td>
+        <td><%= link_to 'Edit', edit_movement_task_path(task.movement_id, task) %></td>
+        <td><%= link_to 'Destroy', movement_task_path(task.movement.id, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Task', new_task_path %>

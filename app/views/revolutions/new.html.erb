@@ -1,5 +1,15 @@
 <h1>New Revolution</h1>
 
-<%= render partial: 'revolutions/form', revolution: @movement.revolutions.new %>
+<%= render partial: 'form', revolution: @revolution %>
 
-<%= link_to 'Back', movements_path %>
+<%=render "tasks/show_task", @tasks %>
+
+<div class="container">
+  <%= link_to 'Save', movements_path, class: "btn btn-success save" %>
+
+  <%= link_to 'Back', movements_path, class: "btn btn-secondary back" %>
+</div>
+
+<%#= render partial: 'revolutions/form', revolution: @movement.revolutions.new %>
+
+<%#= link_to 'Back', movements_path %>

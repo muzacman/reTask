@@ -7,6 +7,7 @@ class RevolutionsController < ApplicationController
   # GET /revolutions.json
   def index
     @revolutions = Revolution.all
+    # @revolutions = Revolution.find_by_movement_id(@movement)
   end
 
   # GET /revolutions/1

@@ -19,8 +19,8 @@
         <td class="w-25"><%= movement.name %></td>
         <td class="w-50"><%= movement.description %></td>
         <td  class=""><%= link_to 'Execute Revolution',
-                                      new_movement_revolution_path(movement), class: "btn btn-default btn-sm" %></td>
-        <td class=""><%= link_to 'Edit', edit_movement_path(movement), class: "btn btn-default btn-sm"%></td>
+                                      new_movement_revolution_path(movement), class: "btn btn-secondary btn-sm" %></td>
+        <td class=""><%= link_to 'Edit', edit_movement_path(movement), class: "btn btn-secondary btn-sm"%></td>
         <td class=""><%= link_to 'Destroy', movement,
                                      method: :delete, data: { confirm: 'Are you sure?' },
                                      class: "btn btn-danger btn-sm"%></td>

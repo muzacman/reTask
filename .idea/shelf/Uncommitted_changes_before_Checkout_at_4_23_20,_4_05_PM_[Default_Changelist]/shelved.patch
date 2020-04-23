@@ -1,0 +1,61 @@
+Index: app/javascript/packs/movements.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {minValueValid, maxValueValid}  from './validate'\n\nlet fields = document.getElementsByClassName('field');\nlet submitButton = document.getElementById('submit');\nlet fieldsValid = [];\n\nfunction checkFormCompletion() {\n    let allValid = false;\n    for (let i = 0; i < fieldsValid.length; i++) {\n        if (!fieldsValid[i]) {\n            allValid = false;\n            break;\n        } else {\n            allValid = true;\n        }\n    }\n\n    submitButton.disabled = !allValid;\n}\n\nfunction setMsgBlock(message, index) {\n    let errMsgBlock = fields[index].getElementsByClassName('errorMessage')[0]\n    if (message === \"\") {\n        errMsgBlock.innerHTML = `<p>OK</p>`;\n        errMsgBlock.style.color = 'green';\n        fieldsValid[index] = true;\n    } else {\n        errMsgBlock.innerHTML = `<p>${message}</p>`;\n        errMsgBlock.style.color = 'red';\n        fieldsValid[index] = false;\n    }\n}\n\nfields[0].addEventListener('focusout', () => {\n    let nameInput = fields[0].getElementsByTagName('input')[0].value;\n    let message = \"\";\n    let [nameNotShort, nameMessage] = minValueValid(nameInput, 5);\n    let [nameUnderMax, nameMaxMessage] = maxValueValid(nameInput, 200);\n    if (!nameNotShort) {message += nameMessage;}\n    if (!nameUnderMax) {message += nameMaxMessage;}\n    setMsgBlock(message, 0)\n\n    checkFormCompletion();\n});\n\nfields[1].addEventListener('focusout', () => {\n    let nameInput = fields[1].getElementsByTagName('input')[0].value;\n    let message = \"\";\n    let [nameNotShort, nameMessage] = minValueValid(nameInput);\n    let [nameUnderMax, nameMaxMessage] = maxValueValid(nameInput, 1000);\n    if (!nameNotShort) {message += nameMessage;}\n    if (!nameUnderMax) {message += nameMaxMessage;}\n    setMsgBlock(message, 1)\n\n    checkFormCompletion();\n});
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/javascript/packs/movements.js	(revision 8e58b547ce95c2f60ee89890fd66de0d5ed47dd6)
++++ app/javascript/packs/movements.js	(date 1587672272225)
+@@ -31,26 +31,26 @@
+     }
+ }
+ 
+-fields[0].addEventListener('focusout', () => {
+-    let nameInput = fields[0].getElementsByTagName('input')[0].value;
+-    let message = "";
+-    let [nameNotShort, nameMessage] = minValueValid(nameInput, 5);
+-    let [nameUnderMax, nameMaxMessage] = maxValueValid(nameInput, 200);
+-    if (!nameNotShort) {message += nameMessage;}
+-    if (!nameUnderMax) {message += nameMaxMessage;}
+-    setMsgBlock(message, 0)
+-
+-    checkFormCompletion();
+-});
+-
+-fields[1].addEventListener('focusout', () => {
+-    let nameInput = fields[1].getElementsByTagName('input')[0].value;
+-    let message = "";
+-    let [nameNotShort, nameMessage] = minValueValid(nameInput);
+-    let [nameUnderMax, nameMaxMessage] = maxValueValid(nameInput, 1000);
+-    if (!nameNotShort) {message += nameMessage;}
+-    if (!nameUnderMax) {message += nameMaxMessage;}
+-    setMsgBlock(message, 1)
+-
+-    checkFormCompletion();
+-});
+\ No newline at end of file
++// fields[0].addEventListener('focusout', () => {
++//     let nameInput = fields[0].getElementsByTagName('input')[0].value;
++//     let message = "";
++//     let [nameNotShort, nameMessage] = minValueValid(nameInput, 5);
++//     let [nameUnderMax, nameMaxMessage] = maxValueValid(nameInput, 200);
++//     if (!nameNotShort) {message += nameMessage;}
++//     if (!nameUnderMax) {message += nameMaxMessage;}
++//     setMsgBlock(message, 0)
++//
++//     checkFormCompletion();
++// });
++//
++// fields[1].addEventListener('focusout', () => {
++//     let nameInput = fields[1].getElementsByTagName('input')[0].value;
++//     let message = "";
++//     let [nameNotShort, nameMessage] = minValueValid(nameInput);
++//     let [nameUnderMax, nameMaxMessage] = maxValueValid(nameInput, 1000);
++//     if (!nameNotShort) {message += nameMessage;}
++//     if (!nameUnderMax) {message += nameMaxMessage;}
++//     setMsgBlock(message, 1)
++//
++//     checkFormCompletion();
++// });
+\ No newline at end of file

@@ -13,6 +13,8 @@ class RevolutionsController < ApplicationController
   # GET /revolutions/1
   # GET /revolutions/1.json
   def show
+    @movement = Movement.find(@revolution.movement_id)
+
   end
 
   # GET /revolutions/new

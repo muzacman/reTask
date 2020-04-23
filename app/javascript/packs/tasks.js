@@ -1,3 +1,4 @@
+/*
 import ValidateInput from "./validate";
 
 let fields = document.getElementsByClassName('field');
@@ -36,4 +37,4 @@ for (let i = 0; i < fields.length; i++) {
         }
         checkFormCompletion();
     });
-}
+}*/
